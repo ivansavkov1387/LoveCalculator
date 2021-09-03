@@ -8,10 +8,19 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let networkManager = NetworkManager()
+    var firstName = ""
+    var secondName = ""
+    lazy var url = "https://love-calculator.p.rapidapi.com/getPercentage?fname=\(firstName)&sname=\(secondName)"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        networkManager.makeURLrequest(with: url) { (percentage) in
+            print(percentage)
+        }
+        
     }
 
 
